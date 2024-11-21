@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Callable
+from typing import Any, Callable
 
 from anthropic import AsyncAnthropic  # Import AsyncAnthropic client
 from anthropic.types.beta.beta_message import BetaMessage
@@ -8,6 +8,7 @@ from langchain_core.tools import BaseTool
 from langchain_core.tools.convert import tool as tool_decorator
 from litellm import ChatCompletionMessageToolCall, Function, Message
 from litellm.types.utils import Choices, ModelResponse
+from pydantic import BaseModel
 from temporalio import activity
 from temporalio.exceptions import ApplicationError
 
@@ -19,7 +20,7 @@ from ...common.protocol.tasks import StepContext, StepOutcome
 from ...common.storage_handler import auto_blob_store
 from ...common.utils.template import render_template
 from ...env import anthropic_api_key, debug
-from ..utils import get_handler_with_filtered_params
+from ..utils import get_handler_with_filtered_params, get_integration_arguments
 from .base_evaluate import base_evaluate
 
 COMPUTER_USE_BETA_FLAG = "computer-use-2024-10-22"
@@ -70,13 +71,11 @@ def format_tool(tool: Tool) -> dict:
 
         formatted["function"]["parameters"] = json_schema
 
-    # # FIXME: Implement integration tools
-    # elif tool.type == "integration":
-    #     raise NotImplementedError("Integration tools are not supported")
+    elif tool.type == "integration" and tool.integration:
+        formatted["function"]["parameters"] = get_integration_arguments(tool)
 
-    # # FIXME: Implement API call tools
-    # elif tool.type == "api_call":
-    #     raise NotImplementedError("API call tools are not supported")
+    elif tool.type == "api_call" and tool.api_call:
+        formatted["function"]["parameters"] = tool.api_call.schema_
 
     return formatted
 
@@ -146,7 +145,9 @@ async def prompt_step(context: StepContext) -> StepOutcome:
 
     # Get passed settings
     passed_settings: dict = context.current_step.model_dump(
-        exclude=excluded_keys, exclude_unset=True
+        # TODO: Should we exclude unset?
+        exclude=excluded_keys,
+        exclude_unset=True,
     )
     passed_settings.update(passed_settings.pop("settings", {}))
 
@@ -251,8 +252,6 @@ async def prompt_step(context: StepContext) -> StepOutcome:
         )
 
     else:
-        # FIXME: hardcoded tool to a None value as the tool calls are not implemented yet
-        formatted_tools = None
         # Use litellm for other models
         completion_data: dict = {
             "model": agent_model,
