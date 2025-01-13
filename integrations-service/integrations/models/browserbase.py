@@ -1,6 +1,7 @@
 from typing import Literal
 
-from browserbase import DebugConnectionURLs, Session
+from browserbase.types import Session
+from browserbase.types.session_live_urls import SessionLiveURLs
 from pydantic import AnyUrl, Field
 
 from .base_models import BaseOutput
@@ -12,6 +13,7 @@ class BrowserbaseListSessionsOutput(BaseOutput):
 
 class BrowserbaseCreateSessionOutput(BaseOutput):
     id: str = Field(..., description="Unique identifier for the session")
+    connectionUrl: str | None = Field(None, description="The connection URL for the session")
     createdAt: str | None = Field(
         None, description="Timestamp indicating when the session was created"
     )
@@ -90,7 +92,7 @@ class PageInfo(BaseOutput):
 
 
 class BrowserbaseGetSessionLiveUrlsOutput(BaseOutput):
-    urls: DebugConnectionURLs = Field(..., description="The live URLs for the session")
+    urls: SessionLiveURLs = Field(..., description="The live URLs for the session")
 
 
 class BrowserbaseContextOutput(BaseOutput):
