@@ -1,0 +1,324 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Julep",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "theme": "quill",
+  "background": {
+    "style": "gradient"
+  },
+  "colors": {
+    "primary": "#004E64",
+    "light": "#00A5CF",
+    "dark": "#25A18E",
+    "background": {
+      "dark": "#072b3f",
+      "light": "#F7FCF7"
+    },
+    "anchors": {
+      "from": "#25A18E",
+      "to": "#7AE582"
+    }
+  },
+  "layout": "topnav",
+  "font": {
+    "headings": {
+      "family": "Instrument Sans",
+      "weight": 500
+    },
+    "body": {
+      "family": "Figtree",
+      "weight": 500
+    }
+  },
+  "rounded": "sharp",
+  "modeToggle": {
+    "default": "light",
+    "isHidden": false
+  },
+  "codeBlock": {
+    "mode": "dark"
+  },
+  "sidebar": {
+    "items": "card"
+  },
+  "topbar": {
+    "style": "gradient"
+  },
+  "search": {
+    "location": "top",
+    "prompt": "Search Julep docs"
+  },
+  "versions": ["v1", "dev"],
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:developers@julep.ai"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get API Key",
+    "url": "https://dashboard.julep.ai"
+  },
+  "tabs": [
+    {
+      "name": "🚀 Get Started",
+      "url": "getting-started"
+    },
+    {
+      "name": "🙋 How-to guides",
+      "url": "examples"
+    },
+    {
+      "name": "🔧 SDKs",
+      "url": "sdks"
+    },
+    {
+      "name": "🔍 API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/p4c7ehs4vD"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "getting-started/what-is-julep",
+        "getting-started/try-it-out",
+        "getting-started/create-agent",
+        "getting-started/run-task",
+        "getting-started/explore-features"
+      ]
+    },
+    {
+      "group": "Concepts",
+      "pages": [
+        "getting-started/agents",
+        "getting-started/tasks",
+        "getting-started/sessions",
+        "getting-started/users",
+        "getting-started/docs"
+      ]
+    },
+    {
+      "group": "Tutorials",
+      "pages": [
+        "getting-started/multi-agent-workflow",
+        "getting-started/agent-with-tools",
+        "getting-started/agent-with-files",
+        "getting-started/agent-with-integrations"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        {
+          "group": "Google",
+          "pages": [
+            "getting-started/google-sheets",
+            "getting-started/google-docs",
+            "getting-started/google-drive",
+            "getting-started/google-chat",
+            "getting-started/google-meet",
+            "getting-started/google-tasks",
+            "getting-started/integrations"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Advanced Topics",
+      "pages": [
+        "getting-started/supported-models",
+        "getting-started/executions",
+        "getting-started/files",
+        "getting-started/tools"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        "api-reference/built-in-tools",
+        "api-reference/integration-types",
+        "api-reference/available-integrations"
+      ]
+    },
+    {
+      "group": "How-to guides",
+      "pages": [
+        {
+          "group": "Getting Started Examples",
+          "pages": [
+            "examples/basic-agent-creation",
+            "examples/task-workflow-basics",
+            "examples/tool-integration-demo"
+          ]
+        },
+        {
+          "group": "Use Case Examples",
+          "pages": [
+            "examples/customer-service",
+            "examples/research-assistant",
+            "examples/document-processing",
+            "examples/data-analysis"
+          ]
+        },
+        {
+          "group": "Advanced Examples",
+          "pages": [
+            "examples/multi-agent-systems",
+            "examples/complex-workflows",
+            "examples/integration-patterns"
+          ]
+        },
+        {
+          "group": "Cookbooks",
+          "pages": [
+            "examples/quick-solutions",
+            "examples/industry-solutions",
+            "examples/community-examples"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "SDKs",
+      "pages": [
+        "sdks/index",
+        {
+          "group": "Python SDK",
+          "pages": [
+            "sdks/python/installation",
+            {
+              "group": "Core Components",
+              "pages": [
+                "sdks/python/agents",
+                "sdks/python/tasks",
+                "sdks/python/sessions"
+              ]
+            },
+            "sdks/python/tools-integration",
+            "sdks/python/advanced-usage",
+            "sdks/python/reference"
+          ]
+        },
+        {
+          "group": "Node.js SDK",
+          "pages": [
+            "sdks/nodejs/installation",
+            {
+              "group": "Core Components",
+              "pages": [
+                "sdks/nodejs/agents",
+                "sdks/nodejs/tasks",
+                "sdks/nodejs/sessions"
+              ]
+            },
+            "sdks/nodejs/tools-integration",
+            "sdks/nodejs/advanced-usage",
+            "sdks/nodejs/reference"
+          ]
+        },
+        {
+          "group": "Common Patterns",
+          "pages": [
+            "sdks/common/error-handling",
+            "sdks/common/authentication",
+            "sdks/common/testing"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/introduction",
+        {
+          "group": "Agent Endpoints",
+          "pages": [
+            "api-reference/agents/create",
+            "api-reference/agents/update",
+            "api-reference/agents/delete",
+            "api-reference/agents/list"
+          ]
+        },
+        {
+          "group": "Task Endpoints",
+          "pages": [
+            "api-reference/tasks/create",
+            "api-reference/tasks/execute",
+            "api-reference/tasks/status",
+            "api-reference/tasks/list"
+          ]
+        },
+        {
+          "group": "Session Endpoints",
+          "pages": [
+            "api-reference/sessions/create",
+            "api-reference/sessions/update",
+            "api-reference/sessions/list"
+          ]
+        },
+        {
+          "group": "Tool Endpoints",
+          "pages": [
+            "api-reference/tools/register",
+            "api-reference/tools/update",
+            "api-reference/tools/list"
+          ]
+        },
+        {
+          "group": "Types",
+          "pages": [
+            "api-reference/types/responses",
+            "api-reference/types/errors",
+            "api-reference/types/pagination"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/julepai",
+    "github": "https://github.com/julep-ai"
+  },
+  "seo": {
+    "indexHiddenPages": false
+  },
+  "api": {
+    "auth": {
+      "method": "bearer",
+      "name": "Authorization",
+      "inputPrefix": "Bearer "
+    },
+    "baseUrl": ["https://api.julep.ai/api", "https://dev.julep.ai/api"],
+    "maintainOrder": false,
+    "paramFields": {
+      "expanded": "topLevel"
+    },
+    "request": {
+      "example": {
+        "showOptionalParams": true,
+        "languages": ["python", "javascript"]
+      }
+    },
+    "playground": {
+      "disableProxy": false,
+      "mode": "show"
+    }
+  },
+  "openapi": ["https://dev.julep.ai/api/openapi.json"],
+  "feedback": {
+    "suggestEdit": true,
+    "raiseIssue": true
+  }
+}
