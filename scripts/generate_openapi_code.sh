@@ -7,6 +7,7 @@ set -x
 set -e
 
 cd typespec/ && \
+    npm install && \
     tsp compile .
 cd -
 
